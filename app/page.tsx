@@ -26,10 +26,7 @@ export default async function Home() {
 
       {/* Divider */}
       <div className="my-8 w-4/5 h-[1px] bg-black dark:bg-white" />
-
-      {/* Image Grid */}
       <ImageGrid />
-
     </div>
   );
 }
