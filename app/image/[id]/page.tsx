@@ -39,14 +39,9 @@ const Page = async ({ params }: { params: Params }) => {
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
-            
-            {/* Album Title */}
-            <h1 className="text-2xl font-bold underline mb-8">
-                {currentImage.title || "Untitled Album"}
-            </h1>
 
             {/* Image Display Section */}
-            <div className="w-full max-w-2xl bg-white border border-gray-300 rounded-lg shadow-md flex items-center justify-center mb-8">
+            <div className="w-full mt-8 max-w-2xl bg-white border border-gray-300 rounded-lg shadow-md flex items-center justify-center mb-8">
                 <Image
                     src={`https://utfs.io/f/${currentImage.upload_key}`}
                     alt={currentImage.caption || "Image"}
@@ -59,10 +54,11 @@ const Page = async ({ params }: { params: Params }) => {
 
             {/* Image Metadata Section */}
             <div className="w-full max-w-2xl p-6 bg-white border border-gray-300 rounded-lg shadow-md">
-                <h2 className="text-lg font-semibold mb-4">For the curious...</h2>
-                <pre className="text-gray-500 text-sm whitespace-pre-wrap">
-                    {JSON.stringify(currentImage.title, null, 2) || "No metadata available"}
-                </pre>
+                {/* Album Title */}
+                <h1 className="text-2xl font-bold underline mb-8">
+                    {currentImage.title || "Untitled Album"}
+                </h1>
+                <p className="text-xl mt-8">{currentImage.caption}</p>
             </div>
         </div>
     );
