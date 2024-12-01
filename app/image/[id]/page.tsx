@@ -3,9 +3,10 @@ import { Tables } from "@/database.types";
 import Image from "next/image";
 
 
-const Page = async ({ params }: { params: { id: number } }) => {
+type Params = Promise<{id: number}>;
+const Page = async ({ params }: { params: Params }) => {
 
-    const { id } = params;
+    const { id } = await params;
     const currentImage: Tables<'photos'> | null = await fetchPhotoById(id);
 
     if (!currentImage) {
