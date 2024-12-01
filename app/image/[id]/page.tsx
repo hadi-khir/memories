@@ -1,9 +1,17 @@
 import { fetchPhotoById } from "@/app/lib/data";
 import { Tables } from "@/database.types";
 import Image from "next/image";
+import {
+    Breadcrumb,
+    BreadcrumbItem,
+    BreadcrumbLink,
+    BreadcrumbList,
+    BreadcrumbPage,
+    BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
 
 
-type Params = Promise<{id: number}>;
+type Params = Promise<{ id: number }>;
 const Page = async ({ params }: { params: Params }) => {
 
     const { id } = await params;
@@ -19,6 +27,19 @@ const Page = async ({ params }: { params: Params }) => {
 
     return (
         <div className="flex flex-col items-center bg-gray-100 py-10">
+
+            <Breadcrumb>
+                <BreadcrumbList>
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        <BreadcrumbPage>Photo</BreadcrumbPage>
+                    </BreadcrumbItem>
+                </BreadcrumbList>
+            </Breadcrumb>
+            
             {/* Album Title */}
             <h1 className="text-2xl font-bold underline mb-8">
                 {currentImage.title || "Untitled Album"}
