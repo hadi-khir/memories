@@ -42,7 +42,8 @@ export default async function Home() {
               alt={photo.caption}
               width={0}
               height={0}
-              className="object-cover"
+              sizes="100vw"
+              style={{ width: '100%', height: 'auto' }}
             />
           </div>
         ))}
